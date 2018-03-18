@@ -2814,6 +2814,9 @@ typedef uint16_t uintptr_t;
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
 typedef unsigned char bool;
 
+# 108 "mcc_generated_files/interrupt_manager.h"
+void interrupt INTERRUPT_InterruptManager(void);
+
 # 4 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
 typedef unsigned size_t;
 
@@ -2877,22 +2880,29 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 94 "mcc_generated_files/eusart.h"
+# 76 "mcc_generated_files/eusart.h"
+extern volatile uint8_t eusartTxBufferRemaining;
+extern volatile uint8_t eusartRxCount;
+
+# 103
 void EUSART_Initialize(void);
 
-# 114
+# 123
 uint8_t EUSART_Read(void);
 
-# 134
+# 143
 void EUSART_Write(uint8_t txData);
 
-# 68 "mcc_generated_files/mcc.h"
+# 165
+void EUSART_Receive_ISR(void);
+
+# 69 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
-# 81
+# 82
 void OSCILLATOR_Initialize(void);
 
-# 94
+# 95
 void WDT_Initialize(void);
 
 # 73 "mcc_generated_files/mcc.c"

@@ -215,7 +215,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="EUSART" name="templateNameValue"/>
-         <value>eusart_noninterrupt</value>
+         <value>eusart_interrupt</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="IOCAF"/>
@@ -247,7 +247,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="EUSART" name="SWRXBufferSize"/>
-         <value>8</value>
+         <value>16</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="EUSART" registerAlias="RCSTA" settingAlias="SPEN" alias="enabled"/>
@@ -1867,7 +1867,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="EUSART" name="eusartInterrupts"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RA0"/>
@@ -1951,7 +1951,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EUSART" registerAlias="RCI" settingAlias="enable"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="EUSART" registerAlias="TXSTA" settingAlias="TX9" alias="9-bit"/>
@@ -2008,16 +2008,24 @@
    </tokenMap>
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
+         <file>mcc_generated_files\interrupt_manager.h</file>
+         <hash>884d2910d3fea76ce5ed2e31f3ca37a7539de471c5ebac1f2630bc93f6777611</hash>
+      </entry>
+      <entry>
          <file>mcc_generated_files\mcc.h</file>
-         <hash>b8a524a74b092d0d13c9caa390d9728d361fbb1131e35be6e5404197d39a3d80</hash>
+         <hash>64cf120c87d8b78729367ab2f033a3e439a84e9cb55b9c168def71db8b2698a2</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\eusart.h</file>
-         <hash>558552fde9c4d174f249bcd7fac4ec08d99af5bfe6b22b7377b5c35797e02602</hash>
+         <hash>caa928aa5eb372a45cbdc861c0e71056b4a87557d7668bb90934b3270d04a53e</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\pin_manager.h</file>
          <hash>fea1ecbf8ca9047c74f93aa34ac3f31c695c1bdae857228039e990d18ebf1b6a</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\interrupt_manager.c</file>
+         <hash>91dcd924cc9da80592845ee778515d80c303b84c61ea0250b0d6443c46058ac9</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\mcc.c</file>
@@ -2025,7 +2033,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\eusart.c</file>
-         <hash>0f091d9a786c2ec3d1fbf9e2baa61aeb303ac0e1f3ac3da21b2699124d36f7fb</hash>
+         <hash>014d95308faa32f4f85143741436518d03ca7c7072caf4446c23c06fe8fc299e</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\pin_manager.c</file>

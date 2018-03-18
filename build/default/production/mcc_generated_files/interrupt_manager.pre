@@ -1,5 +1,8 @@
 
-# 1 "main.c"
+# 1 "mcc_generated_files/interrupt_manager.c"
+
+# 108 "mcc_generated_files/interrupt_manager.h"
+void interrupt INTERRUPT_InterruptManager(void);
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -2791,9 +2794,6 @@ typedef uint16_t uintptr_t;
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
 typedef unsigned char bool;
 
-# 108 "mcc_generated_files/interrupt_manager.h"
-void interrupt INTERRUPT_InterruptManager(void);
-
 # 4 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
 typedef unsigned size_t;
 
@@ -2882,40 +2882,24 @@ void OSCILLATOR_Initialize(void);
 # 95
 void WDT_Initialize(void);
 
-# 46 "main.c"
-void readUserInput(char* buffer) {
-if(eusartRxCount != 0){
-uint8_t count = eusartRxCount;
-for (int i = 0; i < count; i++) {
-buffer[i] = EUSART_Read();
-}
-
-printf("Text %s, count: %u\r\l",buffer, count);
-}
-}
-
-# 59
-void main(void)
+# 51 "mcc_generated_files/interrupt_manager.c"
+void interrupt INTERRUPT_InterruptManager (void)
 {
 
-SYSTEM_Initialize();
-
-# 68
-(INTCONbits.GIE = 1);
-
-
-(INTCONbits.PEIE = 1);
-
-# 78
-char buffer[16];
-while (1)
+if(INTCONbits.PEIE == 1)
+{
+if(PIE1bits.RCIE == 1 && PIR1bits.RCIF == 1)
+{
+EUSART_Receive_ISR();
+}
+else
 {
 
+}
+}
+else
+{
 
-printf("%u", eusartRxCount);
-_delay((unsigned long)((1000)*(8000000/4000.0)));
-
-# 93
 }
 }
 

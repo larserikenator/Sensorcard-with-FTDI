@@ -41,8 +41,18 @@
 */
 
 #include "mcc_generated_files/mcc.h"
-#include "stdio.h"
 
+
+void readUserInput(char* buffer) {
+            if(eusartRxCount != 0){                 // If anything recieved
+                uint8_t count = eusartRxCount;      // Save in case interrupt changes
+                for (int i = 0; i < count; i++) {   // Add the incoming string
+                    buffer[i] = EUSART_Read();      //  to buffer
+                }
+              //  buffer[count] = '\0';               // Append null-terminator
+                printf("Text %s, count: %u\r\l",buffer, count);
+            }    
+        }
 /*
                          Main application
  */
@@ -55,23 +65,27 @@ void main(void)
     // Use the following macros to:
 
     // Enable the Global Interrupts
-    //INTERRUPT_GlobalInterruptEnable();
+    INTERRUPT_GlobalInterruptEnable();
 
     // Enable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptEnable();
+    INTERRUPT_PeripheralInterruptEnable();
 
     // Disable the Global Interrupts
     //INTERRUPT_GlobalInterruptDisable();
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
-
+    char buffer[16];
     while (1)
     {
-    //    uint16_t num = 23;
-    //    printf("Hello FTDI %i\r\n", num);
-        printf("Hello World\r\n");
-        __delay_ms(1000); 
+            //readUserInput(buffer);
+            //   __delay_ms(1000);      
+            printf("%u", eusartRxCount);
+            __delay_ms(1000); 
+    //     printf("Hello World\r\n"); __delay_ms(1000);
+         
+        
+        
         //    __delay_ms(1000); 
     //    RC3 = 1;
     //    __delay_ms(1000); 
